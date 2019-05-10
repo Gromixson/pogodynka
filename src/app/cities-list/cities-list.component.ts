@@ -29,6 +29,7 @@ export class CitiesListComponent implements OnInit {
 
   removeCity(index) {
     this.userList.splice(index, 1);
+    localStorage.setItem('userCitiesList', JSON.stringify(this.userList));
   }
 
 
