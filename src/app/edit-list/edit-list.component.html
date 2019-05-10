@@ -1,0 +1,30 @@
+<div class="edit-list">
+  <div class="form-group">
+    <label for="latitude">Szerokość</label>
+    <input type="number" class="form-control" id="latitude" [(ngModel)]="setLatitude" placeholder="np. 37.8267">
+    <small class="form-text text-muted">Podaj szerokość geograficzną</small>
+  </div>
+  <div class="form-group">
+    <label for="longitude">Długość</label>
+    <input type="number" class="form-control" id="longitude" [(ngModel)]="setLongitude" placeholder="np. -122.4233">
+    <small class="form-text text-muted">Podaj długość geograficzną</small>
+  </div>
+  <button type="submit" (click)="check()" class="btn btn-primary">Sprawdź pogodę</button>
+
+  <div class="box" *ngIf="weatherData;">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ weatherData.timezone }}</h4>
+        <p class="card-text">
+          {{ weatherData.currently.summary }} <br>
+          {{ weatherData.currently.temperature }} •C
+        </p>
+        <button (click)="addCityToList(weatherData.latitude, weatherData.longitude)" class="btn btn-success">Dodaj do
+          listy</button>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger edit-list__error" role="alert" *ngIf="badRequest;">
+    <p>Podaj właściwe dane!</p>
+  </div>
+</div>

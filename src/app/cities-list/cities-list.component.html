@@ -1,0 +1,16 @@
+<div class="overflow-container">
+  <div class="box" *ngFor="let item of userList; let i = index">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ item.timezone }}</h4>
+        <p class="card-text">
+          {{ item.currently.summary }} <br>
+          {{ item.currently.temperature }} •C
+        </p>
+        <button (click)="removeCity(i)" class="btn btn-danger">Usuń z
+          listy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <pre><code> {{ userList | json }}</code></pre> -->
